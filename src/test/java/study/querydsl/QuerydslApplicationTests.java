@@ -12,6 +12,7 @@ import study.querydsl.entity.QHello;
 import javax.persistence.EntityManager;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static study.querydsl.entity.QHello.hello;
 
 @SpringBootTest
 @Transactional
@@ -26,10 +27,9 @@ class QuerydslApplicationTests {
 		em.persist(hello);
 
 		JPAQueryFactory query = new JPAQueryFactory(em);
-		QHello qHello = QHello.hello;
 
 		Hello result = query
-				.selectFrom(qHello)
+				.selectFrom(QHello.hello)
 				.fetchOne();
 
 		assertThat(result).isEqualTo(hello);
