@@ -14,7 +14,7 @@ plugins {
 }
 
 group = 'study'
-version = '0.0.1-SNAPSHOT'
+version = '1.8.1'
 sourceCompatibility = '17'
 
 configurations {
@@ -35,10 +35,13 @@ dependencies {
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
 
+	implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:${version}")
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
 tasks.named('test') {
