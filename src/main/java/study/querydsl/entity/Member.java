@@ -11,12 +11,12 @@ import javax.persistence.*;
 @ToString(of = {"id", "username", "age"})
 public class Member {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "MEMBER_ID")
     private Long id;
     private String username;
     private int age;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
